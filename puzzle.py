@@ -18,17 +18,6 @@ class PUZZLE:
     def __init__(self, table, size):
         self.table = table
         self.size = size
-        self.domains = [[] for i in range(self.size)]
-        #define domains
-        for i in range(self.size):
-            for j in range(self.size):
-                self.domains[i].append([0, 1])
-        # fix initial domain
-        for i in range(n):
-            for j in range(n):
-                if self.table[i][j] != '-':
-                    value = self.table[i][j]
-                    self.domains[i][j] = [value]
 
     def print(self):
         for i in range(self.size):
@@ -48,39 +37,47 @@ class PUZZLE:
     def isConsistent(self, i, j, value):
         temptable = copy.deepcopy(self.table)
         temptable[i][j].digit = value
-        strings = []
+        string_rows = []
+        string_columns = []
         for m in range(self.size):
             string_r = ''
             string_c = ''
             for n in range(self.size):
-                string_r += str(temptable[m][n])
-                string_c += str(temptable[n][m])
+                string_r += str(temptable[m][n].digit)
+                string_c += str(temptable[n][m].digit)
             if '-' not in string_r:
                 # check condition 1 in rows
                 if string_r.count('0') != string_r.count('1'):
                     return False
                 # check condition 2 in rows
-                if string_r in strings:
+                if string_r in string_rows:
                     return False
-                else: strings.append(string_r)
+                else: string_rows.append(string_r)
             if '-' not in string_c:
                 # check condition 1 in columns
                 if string_c.count('0') != string_c.count('1'):
                     return False
                 #check condition 2 in columns
-                if string_c in strings:
+                if string_c in string_columns:
                     return False
-                else: strings.append(string_c)
+                else: string_columns.append(string_c)
             #check condition 3
             if '000' in string_r or '111' in string_r or '000' in string_c or '111' in string_c:
                 return False
         return True
 
     def select_variable(self):
-        pass
+        for i, rows in enumerate(self.table):
+            for j, cell in enumerate(rows):
+                if cell.digit == '-':
+                    return (i, j)
 
-    def check_consistency(self):
-        pass
+    def check_consistency(self, new_domain):
+        for i in range(self.size):
+            for j in range(self.size):
+                if len(new_domain[(i, j)]) == 0 and self.table[i][j].assigned == False:
+                    return False
+        return True
 
     def update_domain(self, i, j, value):
         pass
@@ -91,31 +88,29 @@ class PUZZLE:
 #csp model to solve the problem
 class CSP:
 
-    def forward_checking(self):
-        pass
+    def forward_checking(self, i, j, value, problem, domains):
+        new_domain = copy.deepcopy(domains)
+        new_domain[(i, j)].remove(value)
+        return new_domain
 
     def mac(self):
         pass
 
-    def backtrack(self, problem):
+    def backtrack(self, problem, domains):
         if (problem.isComplete()):
             return problem
         i, j = problem.select_variable()
-        for value in problem.domains[i][j]:
+        for value in domains[(i, j)]:
             if problem.isConsistent(i, j, value):
                 problem.table[i][j].digit = value
                 problem.table[i][j].assigned = True
-            new_domain = problem.domains
-            temp_domain = copy.deepcopy(problem.domains)
-            new_domain[i][j] = [value]
-            problem.domains = new_domain
-            if problem.check_consistency(new_domain):
-                result = self.backtrack(problem)
-                if result:
-                   return result
-            problem.domains = temp_domain
-            problem.table[i][j].digit = '-'
-            problem.table[i][j].assigned = False
+                new_domain = self.forward_checking(i, j, value, problem, domains)
+                if problem.check_consistency(new_domain):
+                    result = self.backtrack(problem, new_domain)
+                    if result:
+                        return result
+                problem.table[i][j].digit = '-'
+                problem.table[i][j].assigned = False
         return False
 
 
@@ -130,15 +125,23 @@ if __name__ == '__main__':
     for i in range(n):
         for j in range(n):
             table[i][j] = cell(table[i][j])
+    #init domain
+    domains = {}
+    for i in range(n):
+        for j in range(n):
+            if table[i][j].digit == '-':
+                domains[(i, j)] = [0, 1]
+            else:
+                domains[(i, j)] = []
+
     puzzle = PUZZLE(table, n)
-    print(puzzle.isConsistent(1, 2, 0))
     #solve the puzzle
-    # csp_model = CSP()
-    # result = csp_model.backtrack(puzzle)
-    # print("The answer is:")
-    # if (result):
-    #     puzzle.print()
-    # else:
-    #     print("Solving the puzzle was not successful!")
+    csp_model = CSP()
+    result = csp_model.backtrack(puzzle, domains)
+    print("The answer is:")
+    if (result):
+        puzzle.print()
+    else:
+        print("Solving the puzzle was not successful!")
 
 
