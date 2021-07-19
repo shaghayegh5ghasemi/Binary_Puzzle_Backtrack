@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a39dcb91-be11-4021-a94d-aee5d6690417" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtrack.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtrack.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="C:/my homeworks/8th semester/CI/final project/EvolutionaryGames-main" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.backtrack">
+    <configuration name="backtrack" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="puzzle" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backtrack.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="puzzle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="puzzle" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -55,6 +77,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.backtrack" />
         <item itemvalue="Python.puzzle" />
       </list>
     </recent_temporary>
@@ -77,26 +100,26 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1626615547062" />
-    <state width="1515" height="284" key="GridCell.Tab.0.bottom" timestamp="1626630409173">
+    <state width="1515" height="524" key="GridCell.Tab.0.bottom" timestamp="1626676359525">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="284" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1626630409173" />
-    <state width="1515" height="284" key="GridCell.Tab.0.center" timestamp="1626630409173">
+    <state width="1515" height="524" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1626676359525" />
+    <state width="1515" height="524" key="GridCell.Tab.0.center" timestamp="1626676359525">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="284" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1626630409173" />
-    <state width="1515" height="284" key="GridCell.Tab.0.left" timestamp="1626630409172">
+    <state width="1515" height="524" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1626676359525" />
+    <state width="1515" height="524" key="GridCell.Tab.0.left" timestamp="1626676359525">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="284" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1626630409172" />
-    <state width="1515" height="284" key="GridCell.Tab.0.right" timestamp="1626630409173">
+    <state width="1515" height="524" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1626676359525" />
+    <state width="1515" height="524" key="GridCell.Tab.0.right" timestamp="1626676359525">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="284" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1626630409173" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1626615327231">
+    <state width="1515" height="524" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1626676359525" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1626672205973">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1626615327231" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1626672205973" />
     <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626202594455">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
